@@ -1,3 +1,5 @@
 import { render } from 'react-dom'
 
-render(<p>Hello</p>, document.getElementById('root'))
+import Dashboard from './pages/Dashboard'
+
+render(Dashboard(), document.getElementById('root'))
