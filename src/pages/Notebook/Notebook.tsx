@@ -1,13 +1,6 @@
-// import React, { useState } from 'react';
 import EditableNode from './EditableNode';
 
 const Notebook = () => {
-  //const initContent = "content";
-  //const [content, setContent] = useState(initContent);
-  //const handleOnChange = (content: any) => {
-  //  setContent(content);
-  //}
-
   return(
     <div className="flex flex-col h-screen">
     <div className="flex">
@@ -45,17 +38,3 @@ const Notebook = () => {
 }
 
 export default Notebook
-
-//<div className="min-h-screen flex justify-left whitespace-pre focus:outline-none" 
-//          contentEditable={true}
-//          suppressContentEditableWarning={true}
-//        >
-//          ## Title 1
-//        </div>
-
-
-//<EditableElem>
-//<div style={{ outline: "none"}} className="min-h-screen flex justify-left">
-//  <p>lol</p>
-//</div>
-//</EditableElem>
