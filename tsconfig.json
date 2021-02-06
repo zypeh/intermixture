@@ -5,6 +5,7 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "baseUrl": "./src",
+        "esModuleInterop": true,
         "paths": {
             "~*": ["./*"]
         },
