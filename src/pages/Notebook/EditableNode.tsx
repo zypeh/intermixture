@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
 
 interface IEditableNode {
   onChange?: any;
   children: JSX.Element[] | JSX.Element;
 }
 
-const EditableNode = (props: IEditableNode) => {
+const EditableNode: React.FC<{}> = (props: IEditableNode) => {
   const { onChange } = props;
   const element = useRef<HTMLInputElement>();
 
   const elements: any[] = React.Children.toArray(props.children);
   
-  const onMouseUp = () => {
+  const updateContent = () => {
     const value = element.current?.value || element.current?.innerText;
     if (onChange) {
       onChange(value);
@@ -19,18 +19,15 @@ const EditableNode = (props: IEditableNode) => {
   }
 
   useEffect(() => {
-    const value = element.current?.value || element.current?.innerText;
-    if (onChange) {
-      onChange(value);
-    }
+    updateContent()
   }, []);
 
   return React.cloneElement(elements[0], {
     contentEditable: true,
     suppressContentEditableWarning: true,
     ref: element,
-    onKeyUp: onMouseUp
+    onKeyUp: updateContent
   });
 }
 
-export default EditableNode
+export default EditableNode;

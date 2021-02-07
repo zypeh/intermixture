@@ -1,5 +1,4 @@
 import EditableNode from './EditableNode';
-import ICONS from '../../Icons';
 import Toolbar from './Toolbar';
 
 const Notebook = () => {
@@ -32,8 +31,7 @@ const Notebook = () => {
 
       <main className="flex-1 overflow-y-auto p-5">
         <EditableNode>
-          <div className="focus:outline-none mt-10">
-            Content start here...
+          <div className="focus:outline-none mt-10" placeholder="Content start here...">
           </div>
         </EditableNode>
       </main>
@@ -44,4 +42,4 @@ const Notebook = () => {
   )
 }
 
-export default Notebook
+export default Notebook;
