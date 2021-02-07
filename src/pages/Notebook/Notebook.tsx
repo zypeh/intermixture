@@ -1,5 +1,6 @@
 import EditableNode from './EditableNode';
 import ICONS from '../../Icons';
+import Toolbar from './Toolbar';
 
 const Notebook = () => {
   return(
@@ -27,56 +28,7 @@ const Notebook = () => {
       </aside>
 
       <div className="flex-1 p-5">
-      <div className="flex flex-row">
-        <div className="ml-5" role="button">
-          <svg viewBox="0 0 16 16" width={16} height={16}>
-            <path
-              fillRule="evenodd"
-              d={ ICONS.HEADER_TEXT.path }
-            ></path>
-          </svg>
-        </div>
-        <div className="ml-5" role="button">
-          <svg viewBox="0 0 16 16" width={16} height={16}>
-            <path
-              fillRule="evenodd"
-              d={ ICONS.BOLD.path }
-            ></path>
-          </svg>
-        </div>
-        <div className="ml-5" role="button">
-          <svg viewBox="0 0 16 16" width={16} height={16}>
-            <path
-              fillRule="evenodd"
-              d={ ICONS.ITALIC.path }
-            ></path>
-          </svg>
-        </div>
-        <div className="ml-5" role="button">
-          <svg viewBox="0 0 16 16" width={16} height={16}>
-            <path
-              fillRule="evenodd"
-              d={ ICONS.LINK.path }
-            ></path>
-          </svg>
-        </div>
-        <div className="ml-5" role="button">
-          <svg viewBox="0 0 16 16" width={16} height={16}>
-            <path
-              fillRule="evenodd"
-              d={ ICONS.UNODERED_LIST.path }
-            ></path>
-          </svg>
-        </div>
-        <div className="ml-5" role="button">
-          <svg viewBox="0 0 16 16" width={16} height={16}>
-            <path
-              fillRule="evenodd"
-              d={ ICONS.NUMBERED_LIST.path }
-            ></path>
-          </svg>
-        </div>
-      </div>
+      <Toolbar />
 
       <main className="flex-1 overflow-y-auto p-5">
         <EditableNode>
