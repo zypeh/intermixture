@@ -1,33 +1,33 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
-interface IEditableNode {
-  onChange?: any;
-  children: JSX.Element[] | JSX.Element;
-}
+class EditableNode extends React.Component<{}, { content: string }> {
+  constructor(props: any) {
+    super(props);
+    this.state = {content: ''};
+  }
+  private contentRef = React.createRef<HTMLInputElement>();
+  private firstChildNode: any = React.Children.toArray(this.props.children)[0];
 
-const EditableNode: React.FC<{}> = (props: IEditableNode) => {
-  const { onChange } = props;
-  const element = useRef<HTMLInputElement>();
-
-  const elements: any[] = React.Children.toArray(props.children);
-  
-  const updateContent = () => {
-    const value = element.current?.value || element.current?.innerText;
-    if (onChange) {
-      onChange(value);
-    }
+  handleOnChange = () => {
+    const value = this.contentRef.current?.value 
+                || this.contentRef.current?.innerText;
+    localStorage.setItem('content', value);
   }
 
-  useEffect(() => {
-    updateContent()
-  }, []);
+  componentDidMount() {
+    const storedContent = localStorage.getItem('content') || '';
+    this.setState({content: storedContent});
+  }
 
-  return React.cloneElement(elements[0], {
-    contentEditable: true,
-    suppressContentEditableWarning: true,
-    ref: element,
-    onKeyUp: updateContent
-  });
+  render() {
+    return React.cloneElement(this.firstChildNode, {
+      contentEditable: true,
+      suppressContentEditableWarning: true,
+      ref: this.contentRef,
+      onKeyUp: this.handleOnChange,
+      value: this.state.content
+    });
+  }
 }
 
 export default EditableNode;
